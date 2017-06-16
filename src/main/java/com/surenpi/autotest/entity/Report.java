@@ -5,6 +5,7 @@ import javax.persistence.Id;
 import java.util.Date;
 
 /**
+ * 报告数据库对象
  * @author suren
  */
 @Entity
