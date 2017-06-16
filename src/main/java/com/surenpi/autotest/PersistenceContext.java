@@ -21,6 +21,7 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 /**
+ * 配置
  * @author suren
  */
 @EnableTransactionManagement
