@@ -1,7 +1,7 @@
-package com.surenpi.autotest;
+package com.surenpi.autotest.report;
 
-import com.surenpi.autotest.dao.ReportDao;
-import com.surenpi.autotest.entity.Report;
+import com.surenpi.autotest.report.dao.ReportDao;
+import com.surenpi.autotest.report.entity.Report;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

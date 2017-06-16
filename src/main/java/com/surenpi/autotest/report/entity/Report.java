@@ -1,4 +1,4 @@
-package com.surenpi.autotest.entity;
+package com.surenpi.autotest.report.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
