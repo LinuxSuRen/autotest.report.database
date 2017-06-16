@@ -18,6 +18,7 @@
 
 package com.surenpi.autotest.report;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration;
@@ -25,6 +26,7 @@ import org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfigura
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -46,17 +48,25 @@ import java.util.Properties;
 @EnableAutoConfiguration(exclude = {
         JpaRepositoriesAutoConfiguration.class
 })
+@PropertySource("classpath:application.properties")
 public class PersistenceContext
 {
+    @Value("${jdbc.username}")
+    private String userName;
+    @Value(("${jdbc.password}"))
+    private String password;
+    @Value("${jdbc.database}")
+    private String dataBase;
+
     @Bean
     @Primary
     public DataSource dataSource()
     {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/test?serverTimezone=UTC");
-        dataSource.setUsername("root");
-        dataSource.setPassword("root");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/" + dataBase  + "?serverTimezone=UTC");
+        dataSource.setUsername(userName);
+        dataSource.setPassword(password);
 
         return dataSource;
     }
