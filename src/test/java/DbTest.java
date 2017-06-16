@@ -1,6 +1,6 @@
-import com.surenpi.autotest.PersistenceContext;
-import com.surenpi.autotest.dao.ReportDao;
-import com.surenpi.autotest.entity.Report;
+import com.surenpi.autotest.report.PersistenceContext;
+import com.surenpi.autotest.report.dao.ReportDao;
+import com.surenpi.autotest.report.entity.Report;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
