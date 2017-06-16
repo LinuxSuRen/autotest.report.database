@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import org.suren.autotest.web.framework.report.RecordReportWriter;
 import org.suren.autotest.web.framework.report.record.ExceptionRecord;
 import org.suren.autotest.web.framework.report.record.NormalRecord;
+import org.suren.autotest.web.framework.report.record.ProjectRecord;
 
 /**
  * @author suren
@@ -31,5 +32,10 @@ public class ReportWriter implements RecordReportWriter
         report.setId((int)System.currentTimeMillis());
 
         reportDao.save(report);
+    }
+
+    @Override
+    public void write(ProjectRecord projectRecord)
+    {
     }
 }
