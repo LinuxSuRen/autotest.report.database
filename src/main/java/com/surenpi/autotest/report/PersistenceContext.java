@@ -19,10 +19,6 @@
 package com.surenpi.autotest.report;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
-import org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration;
-import org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Primary;
@@ -43,11 +39,11 @@ import java.util.Properties;
  * 配置
  * @author suren
  */
-@EnableTransactionManagement
+//@EnableTransactionManagement
 @EnableJpaRepositories(basePackages = "com.surenpi.autotest.report")
-@EnableAutoConfiguration(exclude = {
-        JpaRepositoriesAutoConfiguration.class
-})
+//@EnableAutoConfiguration(exclude = {
+//        JpaRepositoriesAutoConfiguration.class
+//})
 @PropertySource("classpath:application.properties")
 public class PersistenceContext
 {
@@ -80,7 +76,7 @@ public class PersistenceContext
 
         Properties jpaProperties = new Properties();
         jpaProperties.put("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
-        jpaProperties.put("hibernate.hbm2ddl.auto",true);
+        //jpaProperties.put("hibernate.hbm2ddl.auto",true);
         jpaProperties.put("hibernate.show_sql",true);
         jpaProperties.put("hibernate.format_sql",true);
         entityManagerFactoryBean.setJpaProperties(jpaProperties);
