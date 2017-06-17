@@ -27,8 +27,15 @@ public class ReportWriter implements RecordReportWriter
     private String projectId;
 
     @Override
-    public void write(ExceptionRecord record)
+    public void write(ExceptionRecord exceptionRecord)
     {
+        ModelMapper mapper = new ModelMapper();
+        Report report = mapper.map(exceptionRecord, Report.class);
+        report.setStatus("exception");
+        report.setDetail(exceptionRecord.getThrowable().getMessage());
+        report.setProjectId(projectId);
+
+        reportDao.save(report);
     }
 
     @Override
@@ -36,6 +43,7 @@ public class ReportWriter implements RecordReportWriter
     {
         ModelMapper mapper = new ModelMapper();
         Report report = mapper.map(normalRecord, Report.class);
+        report.setStatus("normal");
         report.setProjectId(projectId);
 
         reportDao.save(report);
