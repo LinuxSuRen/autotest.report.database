@@ -33,12 +33,8 @@ public class ReportWriter implements RecordReportWriter
     {
         ModelMapper mapper = new ModelMapper();
         Report report = mapper.map(exceptionRecord.getNormalRecord(), Report.class);
-        report.setStatus("exception");
-
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        exceptionRecord.getThrowable().printStackTrace(new PrintStream(out));
-
-        report.setDetail(out.toString());
+        report.setStatus(ReportStatus.EXCEPTION.name());
+        report.setDetail(exceptionRecord.getStackTraceText());
         report.setProjectId(projectId);
 
         reportDao.save(report);
@@ -49,7 +45,7 @@ public class ReportWriter implements RecordReportWriter
     {
         ModelMapper mapper = new ModelMapper();
         Report report = mapper.map(normalRecord, Report.class);
-        report.setStatus("normal");
+        report.setStatus(ReportStatus.NORMAL.name());
         report.setProjectId(projectId);
 
         reportDao.save(report);
