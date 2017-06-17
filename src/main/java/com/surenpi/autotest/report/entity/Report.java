@@ -1,6 +1,9 @@
 package com.surenpi.autotest.report.entity;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.util.Date;
 
@@ -12,7 +15,10 @@ import java.util.Date;
 public class Report
 {
     @Id
-    private Integer id;
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid")
+    private String id;
+    private String projectId;
     private String moduleName;
     private String moduleDescription;
     private String clazzName;
@@ -20,11 +26,19 @@ public class Report
     private Date beginTime;
     private Date endTime;
 
-    public Integer getId() {
+    public String getProjectId() {
+        return projectId;
+    }
+
+    public void setProjectId(String projectId) {
+        this.projectId = projectId;
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 

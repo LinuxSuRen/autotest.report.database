@@ -29,7 +29,6 @@ public class ReportWriter implements RecordReportWriter
     {
         ModelMapper mapper = new ModelMapper();
         Report report = mapper.map(normalRecord, Report.class);
-        report.setId((int)System.currentTimeMillis());
 
         reportDao.save(report);
     }
