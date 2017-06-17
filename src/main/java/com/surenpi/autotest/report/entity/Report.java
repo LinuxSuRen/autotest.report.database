@@ -5,6 +5,7 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import java.util.Date;
 
 /**
@@ -24,6 +25,7 @@ public class Report
     private String clazzName;
     private String methodName;
     private String status;
+    @Lob
     private String detail;
     private Date beginTime;
     private Date endTime;
