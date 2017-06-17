@@ -5,6 +5,7 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 /**
  * @author suren
@@ -26,6 +27,7 @@ public class Project
     private String timezone;
     private String browserInfo;
     private String addressInfo;
+    @Lob
     private String extInfo;
 
     public String getId()
