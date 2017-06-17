@@ -1,5 +1,7 @@
 import com.surenpi.autotest.report.PersistenceContext;
+import com.surenpi.autotest.report.dao.ProjectDao;
 import com.surenpi.autotest.report.dao.ReportDao;
+import com.surenpi.autotest.report.entity.Project;
 import com.surenpi.autotest.report.entity.Report;
 import org.junit.Assert;
 import org.junit.Test;
@@ -17,14 +19,22 @@ public class DbTest
 {
     @Autowired
     private ReportDao reportDao;
+    @Autowired
+    private ProjectDao projectDao;
 
     @Test
-    public void save()
+    public void crud()
     {
         Assert.assertNotNull(reportDao);
+        Assert.assertNotNull(projectDao);
+
+        Project project = new Project();
+        projectDao.save(project);
+
+        Assert.assertNotNull(project.getId());
 
         Report report = new Report();
-        report.setId((int) System.currentTimeMillis());
+        report.setProjectId(project.getId());
         reportDao.save(report);
     }
 }
