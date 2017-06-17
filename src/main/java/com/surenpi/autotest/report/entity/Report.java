@@ -23,6 +23,8 @@ public class Report
     private String moduleDescription;
     private String clazzName;
     private String methodName;
+    private String status;
+    private String detail;
     private Date beginTime;
     private Date endTime;
 
@@ -72,6 +74,22 @@ public class Report
 
     public void setMethodName(String methodName) {
         this.methodName = methodName;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getDetail() {
+        return detail;
+    }
+
+    public void setDetail(String detail) {
+        this.detail = detail;
     }
 
     public Date getBeginTime() {
