@@ -76,9 +76,9 @@ public class PersistenceContext
 
         Properties jpaProperties = new Properties();
         jpaProperties.put("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
-        //jpaProperties.put("hibernate.hbm2ddl.auto",true);
-        jpaProperties.put("hibernate.show_sql",true);
-        jpaProperties.put("hibernate.format_sql",true);
+        jpaProperties.put("hibernate.hbm2ddl.auto", "update");
+        jpaProperties.put("hibernate.show_sql", true);
+        jpaProperties.put("hibernate.format_sql", true);
         entityManagerFactoryBean.setJpaProperties(jpaProperties);
 
         return entityManagerFactoryBean;
