@@ -4,14 +4,12 @@ import com.surenpi.autotest.report.dao.ProjectDao;
 import com.surenpi.autotest.report.dao.ReportDao;
 import com.surenpi.autotest.report.entity.Project;
 import com.surenpi.autotest.report.entity.Report;
+import com.surenpi.autotest.report.record.ExceptionRecord;
+import com.surenpi.autotest.report.record.NormalRecord;
+import com.surenpi.autotest.report.record.ProjectRecord;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.ui.ModelMap;
-import org.suren.autotest.web.framework.report.RecordReportWriter;
-import org.suren.autotest.web.framework.report.record.ExceptionRecord;
-import org.suren.autotest.web.framework.report.record.NormalRecord;
-import org.suren.autotest.web.framework.report.record.ProjectRecord;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;

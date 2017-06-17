@@ -20,7 +20,6 @@ package com.surenpi.autotest.report;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -28,8 +27,6 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.ui.freemarker.FreeMarkerConfigurationFactory;
 
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
@@ -39,11 +36,7 @@ import java.util.Properties;
  * 配置
  * @author suren
  */
-//@EnableTransactionManagement
 @EnableJpaRepositories(basePackages = "com.surenpi.autotest.report")
-//@EnableAutoConfiguration(exclude = {
-//        JpaRepositoriesAutoConfiguration.class
-//})
 @PropertySource("classpath:application.properties")
 public class PersistenceContext
 {
