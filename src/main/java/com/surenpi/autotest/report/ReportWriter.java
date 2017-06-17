@@ -45,7 +45,7 @@ public class ReportWriter implements RecordReportWriter
     public void write(ProjectRecord projectRecord)
     {
         ModelMapper mapper = new ModelMapper();
-        Project project = new Project();
+        Project project = mapper.map(projectRecord, Project.class);
 
         projectDao.save(project);
 
