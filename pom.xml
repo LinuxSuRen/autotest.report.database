@@ -31,14 +31,8 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.surenpi.autotest</groupId>
-			<artifactId>autotest.web.framework</artifactId>
-			<version>1.0.3-20170610</version>
-            <exclusions>
-				<exclusion>
-					<groupId>org.freemarker</groupId>
-					<artifactId>freemarker</artifactId>
-				</exclusion>
-			</exclusions>
+			<artifactId>autotest.report</artifactId>
+			<version>1.0-SNAPSHOT</version>
 		</dependency>
 
 		<!--
