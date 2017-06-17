@@ -13,6 +13,10 @@ import org.suren.autotest.web.framework.report.record.ExceptionRecord;
 import org.suren.autotest.web.framework.report.record.NormalRecord;
 import org.suren.autotest.web.framework.report.record.ProjectRecord;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.io.PrintWriter;
+
 /**
  * @author suren
  */
@@ -30,9 +34,13 @@ public class ReportWriter implements RecordReportWriter
     public void write(ExceptionRecord exceptionRecord)
     {
         ModelMapper mapper = new ModelMapper();
-        Report report = mapper.map(exceptionRecord, Report.class);
+        Report report = mapper.map(exceptionRecord.getNormalRecord(), Report.class);
         report.setStatus("exception");
-        report.setDetail(exceptionRecord.getThrowable().getMessage());
+
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        exceptionRecord.getThrowable().printStackTrace(new PrintStream(out));
+
+        report.setDetail(out.toString());
         report.setProjectId(projectId);
 
         reportDao.save(report);
