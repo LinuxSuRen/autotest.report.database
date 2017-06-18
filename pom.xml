@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.surenpi.autotest</groupId>
-	<artifactId>autotest.report.sqlite</artifactId>
+	<artifactId>autotest.report.database</artifactId>
 	<version>1.0.0-20170618</version>
 
 	<parent>
@@ -12,7 +12,7 @@
 	</parent>
 	
 	<url>http://surenpi.com</url>
-	<name>autotest.report.sqlite</name>
+	<name>autotest.report.database</name>
 	
 	<build>
 		<plugins>
