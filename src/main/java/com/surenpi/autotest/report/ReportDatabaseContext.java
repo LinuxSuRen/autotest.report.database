@@ -37,8 +37,8 @@ import java.util.Properties;
  * @author suren
  */
 @EnableJpaRepositories(basePackages = "com.surenpi.autotest.report")
-@PropertySource("classpath:application.properties")
-public class PersistenceContext
+@PropertySource("classpath:report.database.properties")
+public class ReportDatabaseContext
 {
     @Value("${jdbc.username}")
     private String userName;

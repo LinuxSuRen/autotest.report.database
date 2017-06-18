@@ -1,4 +1,4 @@
-import com.surenpi.autotest.report.PersistenceContext;
+import com.surenpi.autotest.report.ReportDatabaseContext;
 import com.surenpi.autotest.report.dao.ProjectDao;
 import com.surenpi.autotest.report.dao.ReportDao;
 import com.surenpi.autotest.report.entity.Project;
@@ -14,7 +14,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * @author suren
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = PersistenceContext.class)
+@ContextConfiguration(classes = ReportDatabaseContext.class)
 public class DbTest
 {
     @Autowired
