@@ -1,4 +1,4 @@
-import com.surenpi.autotest.report.database.writer.ReportDatabaseContext;
+import com.surenpi.autotest.report.database.writer.ReportDataBaseContext;
 import com.surenpi.autotest.report.database.dao.ProjectDao;
 import com.surenpi.autotest.report.database.dao.ReportDao;
 import com.surenpi.autotest.report.database.entity.Project;
@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 @RunWith(SpringJUnit4ClassRunner.class)
 @Rollback
 @Transactional
-@ContextConfiguration(classes = ReportDatabaseContext.class)
+@ContextConfiguration(classes = ReportDataBaseContext.class)
 public class DbTest
 {
     @Autowired

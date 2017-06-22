@@ -39,7 +39,7 @@ import java.util.Properties;
  */
 @EnableJpaRepositories(basePackages = "com.surenpi.autotest.report.database.dao")
 @PropertySource("classpath:report.database.properties")
-public class ReportDatabaseContext
+public class ReportDataBaseContext
 {
     @Value("${jdbc.username:root}")
     private String userName;
@@ -89,11 +89,5 @@ public class ReportDatabaseContext
         JpaTransactionManager transactionManager = new JpaTransactionManager();
         transactionManager.setEntityManagerFactory(entityManagerFactory);
         return transactionManager;
-    }
-
-    @Bean
-    public RecordReportWriter createRecordReportWriter()
-    {
-        return new DataBaseReportWriter();
     }
 }

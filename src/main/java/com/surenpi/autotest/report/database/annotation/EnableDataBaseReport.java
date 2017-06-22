@@ -1,6 +1,7 @@
 package com.surenpi.autotest.report.database.annotation;
 
-import com.surenpi.autotest.report.database.writer.ReportDatabaseContext;
+import com.surenpi.autotest.report.database.writer.ReportDataBaseContext;
+import com.surenpi.autotest.report.database.writer.WriterConfigruation;
 import org.springframework.context.annotation.Import;
 
 import java.lang.annotation.*;
@@ -11,7 +12,7 @@ import java.lang.annotation.*;
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-@Import(ReportDatabaseContext.class)
+@Import({ReportDataBaseContext.class, WriterConfigruation.class})
 public @interface EnableDataBaseReport
 {
 }
