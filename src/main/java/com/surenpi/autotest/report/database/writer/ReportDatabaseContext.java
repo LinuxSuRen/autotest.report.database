@@ -16,8 +16,9 @@
  *
  */
 
-package com.surenpi.autotest.report;
+package com.surenpi.autotest.report.database.writer;
 
+import com.surenpi.autotest.report.RecordReportWriter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Primary;
@@ -33,27 +34,32 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 /**
- * 配置
+ * 数据库配置
  * @author suren
  */
-@EnableJpaRepositories(basePackages = "com.surenpi.autotest.report")
+@EnableJpaRepositories(basePackages = "com.surenpi.autotest.report.database.dao")
 @PropertySource("classpath:report.database.properties")
 public class ReportDatabaseContext
 {
-    @Value("${jdbc.username}")
+    @Value("${jdbc.username:root}")
     private String userName;
-    @Value(("${jdbc.password}"))
+    @Value(("${jdbc.password:root}"))
     private String password;
-    @Value("${jdbc.database}")
-    private String dataBase;
+    @Value("${jdbc.url:jdbc:mysql://localhost:3306/phoenix_report?serverTimezone=UTC}")
+    private String url;
+    @Value("${jdbc.driver:com.mysql.cj.jdbc.Driver}")
+    private String driverCls;
+
+    @Value("${jdbc.dialect:org.hibernate.dialect.MySQL5Dialect}")
+    private String dialect;
 
     @Bean
     @Primary
     public DataSource dataSource()
     {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/" + dataBase  + "?serverTimezone=UTC");
+        dataSource.setDriverClassName(driverCls);
+        dataSource.setUrl(url);
         dataSource.setUsername(userName);
         dataSource.setPassword(password);
 
@@ -68,7 +74,7 @@ public class ReportDatabaseContext
         entityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
 
         Properties jpaProperties = new Properties();
-        jpaProperties.put("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
+        jpaProperties.put("hibernate.dialect", dialect);
         jpaProperties.put("hibernate.hbm2ddl.auto", "update");
         jpaProperties.put("hibernate.show_sql", true);
         jpaProperties.put("hibernate.format_sql", true);
@@ -83,5 +89,11 @@ public class ReportDatabaseContext
         JpaTransactionManager transactionManager = new JpaTransactionManager();
         transactionManager.setEntityManagerFactory(entityManagerFactory);
         return transactionManager;
+    }
+
+    @Bean
+    public RecordReportWriter createRecordReportWriter()
+    {
+        return new DataBaseReportWriter();
     }
 }

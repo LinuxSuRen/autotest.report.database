@@ -1,6 +1,6 @@
-package com.surenpi.autotest.report.dao;
+package com.surenpi.autotest.report.database.dao;
 
-import com.surenpi.autotest.report.entity.Project;
+import com.surenpi.autotest.report.database.entity.Project;
 import org.springframework.data.repository.CrudRepository;
 
 /**

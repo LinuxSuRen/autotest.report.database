@@ -1,4 +1,4 @@
-package com.surenpi.autotest.report.entity;
+package com.surenpi.autotest.report.database.entity;
 
 import org.hibernate.annotations.GenericGenerator;
 

@@ -1,19 +1,23 @@
-import com.surenpi.autotest.report.ReportDatabaseContext;
-import com.surenpi.autotest.report.dao.ProjectDao;
-import com.surenpi.autotest.report.dao.ReportDao;
-import com.surenpi.autotest.report.entity.Project;
-import com.surenpi.autotest.report.entity.Report;
+import com.surenpi.autotest.report.database.writer.ReportDatabaseContext;
+import com.surenpi.autotest.report.database.dao.ProjectDao;
+import com.surenpi.autotest.report.database.dao.ReportDao;
+import com.surenpi.autotest.report.database.entity.Project;
+import com.surenpi.autotest.report.database.entity.Report;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author suren
  */
 @RunWith(SpringJUnit4ClassRunner.class)
+@Rollback
+@Transactional
 @ContextConfiguration(classes = ReportDatabaseContext.class)
 public class DbTest
 {

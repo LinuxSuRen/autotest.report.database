@@ -1,9 +1,11 @@
-package com.surenpi.autotest.report;
+package com.surenpi.autotest.report.database.writer;
 
-import com.surenpi.autotest.report.dao.ProjectDao;
-import com.surenpi.autotest.report.dao.ReportDao;
-import com.surenpi.autotest.report.entity.Project;
-import com.surenpi.autotest.report.entity.Report;
+import com.surenpi.autotest.report.RecordReportWriter;
+import com.surenpi.autotest.report.ReportStatus;
+import com.surenpi.autotest.report.database.dao.ProjectDao;
+import com.surenpi.autotest.report.database.dao.ReportDao;
+import com.surenpi.autotest.report.database.entity.Project;
+import com.surenpi.autotest.report.database.entity.Report;
 import com.surenpi.autotest.report.record.ExceptionRecord;
 import com.surenpi.autotest.report.record.NormalRecord;
 import com.surenpi.autotest.report.record.ProjectRecord;
@@ -11,15 +13,10 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-import java.io.PrintWriter;
-
 /**
  * @author suren
  */
-@Component
-public class ReportWriter implements RecordReportWriter
+public class DataBaseReportWriter implements RecordReportWriter
 {
     @Autowired
     private ReportDao reportDao;
