@@ -1,8 +1,9 @@
 package com.surenpi.autotest.report.database.writer;
 
-import com.surenpi.autotest.report.RecordReportWriter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import com.surenpi.autotest.report.RecordReportWriter;
 
 /**
  * @author suren

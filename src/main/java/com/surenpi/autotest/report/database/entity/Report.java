@@ -1,12 +1,13 @@
 package com.surenpi.autotest.report.database.entity;
 
-import org.hibernate.annotations.GenericGenerator;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
-import java.util.Date;
+
+import org.hibernate.annotations.GenericGenerator;
 
 /**
  * 报告数据库对象

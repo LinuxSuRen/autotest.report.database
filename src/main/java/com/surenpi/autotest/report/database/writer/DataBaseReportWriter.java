@@ -1,5 +1,8 @@
 package com.surenpi.autotest.report.database.writer;
 
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.surenpi.autotest.report.RecordReportWriter;
 import com.surenpi.autotest.report.ReportStatus;
 import com.surenpi.autotest.report.database.dao.ProjectDao;
@@ -9,9 +12,6 @@ import com.surenpi.autotest.report.database.entity.Report;
 import com.surenpi.autotest.report.record.ExceptionRecord;
 import com.surenpi.autotest.report.record.NormalRecord;
 import com.surenpi.autotest.report.record.ProjectRecord;
-import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 /**
  * @author suren

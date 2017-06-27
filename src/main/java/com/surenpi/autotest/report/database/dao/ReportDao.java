@@ -1,8 +1,8 @@
 package com.surenpi.autotest.report.database.dao;
 
-import com.surenpi.autotest.report.database.entity.Report;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
+
+import com.surenpi.autotest.report.database.entity.Report;
 
 /**
  * @author suren
