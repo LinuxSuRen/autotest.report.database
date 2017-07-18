@@ -16,7 +16,7 @@ pipeline {
 node {
   def mvnHome
   stage('Preparation') {
-    git 'https://github.com/LinuxSuRen/autotest.report.jira.git'
+    git 'https://github.com/LinuxSuRen/autotest.report.database.git'
     mvnHome = tool 'M3'
   }
   
